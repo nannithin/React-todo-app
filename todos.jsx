@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {BsSunFill,BsMoonStarsFill,BsFillInfoCircleFill,BsFillHeartFill} from 'react-icons/Bs';
 import TodoList from './todolist';
@@ -63,15 +64,19 @@ const Todo = () =>{
     return(
         <div className={dark==true ? "dark" : "light"}>
        
-            <div className="dark:bg-[#16191e] min-h-screen w-screen bg-[#ebeef3] font-sans">
-                <div className="w-[500px] mx-auto px-8 py-[100px] min-h-[700px]">
-                    <div className="flex justify-center py-3">
-                        <h1 className="dark:text-white text-3xl font-bold">Todo App</h1>
-                        <button className="text-white bg-[#4273bf] text-xl ml-28 px-2 rounded-md mt-1 py-2 dark:text-black " onClick={Toggledark}> {dark ? <BsMoonStarsFill /> : <BsSunFill /> } </button> <a href="https://github.com/nannithin/todo"><div  className="text-white mt-1 ml-4 px-[9px] rounded-md bg-[#4273bf] py-3 cursor-pointer dark:text-black"><BsFillInfoCircleFill /></div></a>
+            <div className="dark:bg-[#16191e] min-h-screen min-w-full bg-[#ebeef3] font-sans">
+                <div className="min-w-[300px] sm:min-w-[250px] mx-auto px-8 py-[100px] min-h-[700px]">
+                    
+                    <div className="flex justify-between sm:justify-center py-3">
+                        
+                        <h1 className="dark:text-white sm:text-4xl text-3xl  font-bold">Todo App</h1>
+                        <div className="flex">
+                        <button className="text-white mt-1 ml-4 px-[9px] rounded-md bg-[#4273bf] py-3 cursor-pointer dark:text-black" onClick={Toggledark}> {dark ? <BsSunFill /> : <BsMoonStarsFill /> } </button> <a href="https://github.com/nannithin/todo"><div  className="text-white mt-1 ml-4 px-[9px] rounded-md bg-[#4273bf] py-3 cursor-pointer dark:text-black"><BsFillInfoCircleFill /></div></a>
+                        </div>
                     </div>
-                    <form className="flex justify-center py-4" onSubmit={Submithandler}>
-                        <input type="text" value={todo} onChange={(e)=>setTodo(e.target.value)} className="dark:bg-black py-[8px] rounded-md w-[300px] outline-none shadow-md focus:outline-[#4273bf] border-[#4273bf] mx-5 dark:text-white px-3 text-[20px] font-mono " placeholder="Enter task..."/>
-                        <button className="bg-[#4273bf] px-4 rounded-md font-semibold text-white">{subbtn}</button>
+                    <form className="flex justify-center mt-3 pb-5" onSubmit={Submithandler}>
+                        <input type="text" value={todo} onChange={(e)=>setTodo(e.target.value)} className="dark:bg-black py-[8px] rounded-md  outline-none shadow-md focus:outline-[#4273bf] border-[#4273bf] dark:text-white px-3 text-[20px] font-mono min-w-[200px] w-[300px]" placeholder="Enter task..."/>
+                        <button className="bg-[#4273bf] rounded-md font-semibold text-white ml-4 px-3">{subbtn}</button>
                     </form>
 
                    
@@ -79,7 +84,7 @@ const Todo = () =>{
                            <TodoList todos={todos} setTodos={setTodos} edithandler={edithandler}/>
                        </div>
                 </div>
-                <div className="text-white flex justify-center ">
+                <div className="dark:text-white flex justify-center ">
                     <p className="flex"> Made with <BsFillHeartFill className="text-red-500 mt-[5px] mx-1"/>By <a className="ml-1 text-blue-500" href="https://github.com/nannithin">Nithin</a></p>
                 </div>
             </div>
